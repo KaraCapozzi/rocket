@@ -8,11 +8,8 @@ class RocketTest < Minitest::Test
   end
 
   def test_has_name
-    # arrange
       @rocket = Rocket.new(name: "aries")
-  # act
     result = @rocket.name   # expect it
-#assert#
     assert_equal("aries",result)
   end
 
@@ -22,5 +19,21 @@ class RocketTest < Minitest::Test
     assert_equal("red",result)
   end
 
+def test_rocket_has_no_name
+  @rocket = Rocket.new
+
+  if @rocket.name == "" || !@rocket.name
+    valid=0
+  else
+    valid=1
+  end
+  assert_equal(1,valid)
+end
+
+def test_flying_true_or_false
+  @rocket = Rocket.new
+  result = @rocket.flying?
+  assert_equal(false, result)
+end
 
 end
